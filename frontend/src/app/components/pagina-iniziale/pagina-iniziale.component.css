@@ -1,0 +1,46 @@
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/scala.avif');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content-container {
+    text-align: center; /* Allinea il contenuto al centro */
+  }
+  
+  .welcome-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 6rem; /* Dimensione maggiore per il titolo */
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Ombra più evidente */
+    margin-bottom: 30px; /* Aumenta il margine inferiore per spingere il titolo verso l'alto */
+  }
+  
+  .button-container {
+    margin-top: 50px; /* Sposta il bottone verso il basso */
+  }
+  
+  .btn-primary {
+    background-color: #4CAF50; /* Colore di sfondo verde per il bottone */
+    color: white; /* Colore del testo bianco */
+    border-color: #4CAF50; /* Colore del bordo verde */
+    font-size: 2rem; /* Dimensione del carattere del bottone più grande */
+    padding: 15px 30px; /* Padding del bottone aumentato */
+    border-radius: 8px; /* Bordo arrotondato del bottone */
+    transition: all 0.3s ease; /* Transizione animata */
+  }
+  
+  .btn-primary:hover {
+    background-color: #388E3C; /* Colore di sfondo verde scuro al passaggio del mouse */
+    border-color: #388E3C; /* Colore del bordo verde scuro al passaggio del mouse */
+  }
+  

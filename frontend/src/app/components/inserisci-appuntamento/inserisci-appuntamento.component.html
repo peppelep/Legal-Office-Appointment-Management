@@ -1,0 +1,103 @@
+<style>
+
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/oggi2.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+  }
+
+  .form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+</style>
+
+<div class="background-container">
+  <div class="center-content">
+    <div class="form-container">
+      <form (submit)="addAppuntamento()" [formGroup]="appuntamentotForm" [ngClass]="{ 'was-validated': formSubmitted }">
+        <h4 class="mb-3" style="color: darkgreen; font-size: 1.2em;"><strong>Appuntamento</strong></h4>
+
+        <div class="row g-5">
+          <div class="col-sm-6">
+            <label for="tipo" class="form-label"><strong>Tipo Appuntamento:</strong></label>
+            <select id="tipo" formControlName="tipo" required class="form-control">
+              <option value="" disabled selected>Seleziona un tipo</option>
+              <option value="Consultazione">Consulenza fiscale</option>
+              <option value="Controllo">Procedimenti Penali</option>
+              <option value="Esame">Consultazione</option>
+              <option value="Altro">Altro</option>
+            </select>
+            <div class="invalid-feedback">
+              Il tipo di appuntamento è obbligatorio.
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="ora" class="form-label"><strong>Ora:</strong></label>
+            <input type="time" id="ora" formControlName="ora" required class="form-control" #oraInput>
+            <div class="invalid-feedback">
+              L'ora è obbligatoria.
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="data" class="form-label"><strong>Data:</strong></label>
+            <input type="date" id="data" formControlName="data" required class="form-control" #dataInput>
+            <div class="invalid-feedback">
+              La data è obbligatoria.
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="dettagli"><strong>Descrizione:</strong></label>
+            <textarea id="dettagli" formControlName="dettagli" required class="form-control" #dettagliInput></textarea>
+            <div class="invalid-feedback">
+              La descrizione è obbligatoria.
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="nomeAvvocato"><strong>Avvocato:</strong></label>
+            <input type="text" id="nomeAvvocato" formControlName="nomeAvvocato" required class="form-control" #nomeAvvocatoInput>
+            <div class="invalid-feedback">
+              La città è obbligatoria.
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="postiDisponibili" class="form-label"><strong>Posti Disponibili:</strong></label>
+            <input type="number" id="postiDisponibili" formControlName="postiDisponibili" required class="form-control" min="1">
+            <div class="invalid-feedback">
+              Il numero di posti disponibili è obbligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; text-align: center;">
+          <button type="submit" class="btn btn-success rounded-pill" [disabled]="!appuntamentotForm.valid">Aggiungi Appuntamento</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

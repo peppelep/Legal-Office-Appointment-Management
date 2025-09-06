@@ -1,0 +1,44 @@
+.container {
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.col-md-4 {
+  flex: 0 0 33.3333%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.example-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.example-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.appuntamento-details {
+  padding: 10px;
+}
+
+.appuntamento-details p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.mat-card-content {
+  padding: 20px;
+}
+
+.mat-card {
+  border-radius: 8px;
+  overflow: hidden;
+}

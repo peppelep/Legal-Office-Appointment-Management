@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenotazione Effettuata</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/assets/scala.avif');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto; /* Aggiunto per abilitare lo scrolling */
+        }
+
+        .content-container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            border-radius: 10px;
+            max-height: 80vh; /* Aggiunto per limitare l'altezza del contenitore */
+            overflow-y: auto; /* Aggiunto per abilitare lo scrolling verticale */
+        }
+
+        .welcome-text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+
+        .section-text {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .footer {
+            font-size: 1rem;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="content-container">
+            <h1 class="welcome-text">Centro Legale</h1>
+            <div class="section">
+                <h2 class="section-title">Benvenuto!</h2>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Chi Siamo</h2>
+                <p class="section-text">Il nostro centro legale offre consulenze professionali e rappresentanza legale in vari ambiti del diritto. Siamo qui per assisterti e garantirti il miglior servizio possibile. I nostri avvocati sono specializzati in diversi settori, tra cui consulenza fiscale, procedimenti civili e penali.</p>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Come Funziona</h2>
+                <p class="section-text">Il nostro sistema di gestione degli appuntamenti online ti permette di prenotare facilmente un incontro con uno dei nostri avvocati. Ecco come funziona:</p>
+                <ul class="section-text">
+                    <li>Accedi al sistema con le tue credenziali.</li>
+                    <li>Seleziona il tipo di appuntamento di cui hai bisogno (consulenza fiscale, procedimento civile, procedimento penale, ecc.).</li>
+                    <li>Scegli una data e un orario tra quelli disponibili.</li>
+                    <li>Completa la prenotazione allegando eventuali documenti necessari (denunce, atti legali, ecc.).</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Gestione degli Appuntamenti</h2>
+                <p class="section-text">Puoi gestire i tuoi appuntamenti in qualsiasi momento:</p>
+                <ul class="section-text">
+                    <li><strong>Cancellazione:</strong> Puoi cancellare un appuntamento già prenotato se non puoi più partecipare.</li>
+                    <li><strong>Lista d'attesa:</strong> Se tutti gli slot per il tipo di appuntamento desiderato sono occupati, puoi metterti in lista d'attesa. Sarai notificato via email se uno slot si libera.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Notifiche e Conferme</h2>
+                <p class="section-text">Il nostro sistema ti invierà notifiche via email per ricordarti gli appuntamenti imminenti e per confermarti eventuali modifiche o cancellazioni. Assicurati di controllare la tua email regolarmente per rimanere aggiornato.</p>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Supporto</h2>
+                <p class="section-text">Se hai bisogno di assistenza o hai domande sul funzionamento del sistema, non esitare a contattarci. Il nostro team di supporto è a tua disposizione per aiutarti.</p>
+                <p class="section-text">Email: supporto@centrolegale.it</p>
+                <p class="section-text">Telefono: 123-456-7890</p>
+            </div>
+            <p class="footer">&copy; 2024 Centro Legale. Tutti i diritti riservati.</p>
+        </div>
+    </div>
+  </body>
+</html>

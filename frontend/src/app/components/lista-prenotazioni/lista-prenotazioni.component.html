@@ -1,0 +1,65 @@
+<style>
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/oggi7.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1; /* Sposta l'immagine di sfondo dietro tutto il contenuto */
+  }
+
+  .content-container {
+    position: relative;
+    z-index: 1; /* Assicura che il contenuto sia sopra l'immagine di sfondo */
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo trasparente per migliorare la leggibilità del testo */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Larghezza massima del contenuto per evitare che si estenda troppo */
+    margin: 50px auto; /* Centra il contenuto verticalmente e orizzontalmente */
+    overflow-y: auto; /* Abilita lo scrolling verticale se il contenuto supera l'altezza massima */
+    max-height: calc(100% - 100px); /* Altezza massima del contenuto per evitare che superi l'intera finestra */
+  }
+
+  .no-booking-message {
+    color: white !important;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+  }
+</style>
+
+<div class="background-container"></div>
+
+<div class="content-container">
+  <div class="container mt-5">
+    <div *ngIf="prenotazioni.length > 0">
+      <h2 class="mb-4 text-center" style="color: white; font-weight: bold; font-size: 36px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Elenco Prenotazioni</h2>
+      <div class="list-group">
+        <div *ngFor="let prenotazione of prenotazioni" class="list-group-item list-group-item-action flex-column align-items-start mb-3 shadow-sm rounded">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><strong>Tipo Appuntamento:</strong> {{ prenotazione.tipoAppuntamento }}</h5>
+            <button mat-icon-button color="warn" (click)="deletePrenotazione(prenotazione.id)">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </div>
+          <p class="mb-1"><strong>Data:</strong> {{ prenotazione.data | date:'dd/MM/yyyy' }}</p>
+          <p class="mb-1"><strong>Ora:</strong> {{ prenotazione.ora }}</p>
+          <p class="mb-1"><strong>Avvocato:</strong> {{ prenotazione.nomeAvvocato }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="prenotazioni.length === 0" class="text-center">
+      <p class="no-booking-message">
+        Nessuna prenotazione al momento.
+      </p>
+    </div>
+  </div>
+</div>

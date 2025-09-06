@@ -1,0 +1,177 @@
+<style>
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/prenotazione.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1; /* Sposta l'immagine di sfondo dietro tutto il contenuto */
+  }
+
+  .black-card {
+    background-color: #e3e3e3;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .row {
+    margin-top: 3rem;
+  }
+
+  .highlight-box {
+    padding: 0.3rem 0.6rem;
+    background-color: rgba(255, 99, 71, 0.8); /* Rosso chiaro */
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  label {
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  input[type="file"] {
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .product-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .product-details {
+    padding-top: 1rem;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .address-data,
+  .price-data {
+    margin-bottom: 0.5rem;
+  }
+
+  #indirizzospedizione {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-danger {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+
+  .btn-primary {
+    background-color: #050402;
+    border-color: #050402;
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+
+  .btn-primary:disabled,
+  .btn-danger:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>
+
+
+<div class="background-container"></div>
+<div class="content" style="margin-top: 2rem;">
+  <div class="highlight-box">
+    <h2>Informazioni Appuntamento</h2>
+  </div>
+  <div class="card-container">
+    <div *ngIf="appuntamento" class="appuntamento-container">
+      <mat-card class="black-card">
+        <mat-card-content>
+          <div class="appuntamento-details">
+            <p class="appuntamento-name"><strong>Tipo Appuntamento:</strong> {{appuntamento.tipo}}</p>
+            <p class="appuntamento-posti"><strong>Posti Disponibili:</strong> {{appuntamento.postiDisponibili}}</p>
+            <p class="appuntamento-posti-incoda"><strong>Utenti in Attesa:</strong> {{appuntamento.utentiInAttesa}}</p>
+            <p class="appuntamento-data"><strong>Data Appuntamento:</strong> {{appuntamento.data}}</p>
+            <p class="appuntamento-ora"><strong>Ora Appuntamento:</strong> {{appuntamento.ora}}</p>
+            <p class="appuntamento-dettagli"><strong>Dettagli Appuntamento:</strong> {{appuntamento.dettagli}}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div *ngIf="!alreadyBooked" style="margin-top: 2rem;">
+    <label for="fileInput">Carica documento:</label>
+    <input type="file" id="fileInput" (change)="onFileSelected($event)">
+  </div>
+
+  <div *ngIf="!alreadyBooked" style="margin-top: 2rem;">
+    <label for="fileInput">Carica documento:</label>
+    <input type="file" id="fileInput2" (change)="onFileSelected2($event)">
+  </div>
+
+  <div *ngIf="!alreadyBooked" style="margin-top: 2rem;">
+    <label for="fileInput">Carica documento:</label>
+    <input type="file" id="fileInput3" (change)="onFileSelected3($event)">
+  </div>
+
+  <div *ngIf="!alreadyBooked" style="margin-top: 2rem;">
+    <label for="fileInput">Carica documento:</label>
+    <input type="file" id="fileInput4" (change)="onFileSelected4($event)">
+  </div>
+
+  <div style="margin-top: 2rem;">
+    <!-- Controllo condizionale per il bottone -->
+    <button
+      *ngIf="!alreadyBooked && appuntamento && appuntamento.postiDisponibili > 0"
+      type="submit"
+      class="btn btn-danger rounded-pill"
+      (click)="prenota()"
+      routerLink="/ringraziamenti">
+      Prenota
+    </button>
+    <button
+      *ngIf="!alreadyBooked && appuntamento && appuntamento.postiDisponibili === 0"
+      type="button"
+      class="btn btn-danger rounded-pill"
+      (click)="prenota()"
+      routerLink="/ringraziamenti2">
+      Accodati
+    </button>
+    <button
+      *ngIf="alreadyBooked"
+      type="button"
+      class="btn btn-secondary rounded-pill"
+      disabled>
+      GIA PRENOTATO
+    </button>
+  </div>
+</div>
+
+

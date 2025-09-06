@@ -1,0 +1,63 @@
+<style>
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/rimuovi.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1; /* Sposta l'immagine di sfondo dietro tutto il contenuto */
+  }
+
+  .content-container {
+    position: relative;
+    z-index: 1; /* Assicura che il contenuto sia sopra l'immagine di sfondo */
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo trasparente per migliorare la leggibilità del testo */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Larghezza massima del contenuto per evitare che si estenda troppo */
+    margin: 50px auto; /* Centra il contenuto verticalmente e orizzontalmente */
+    overflow-y: auto; /* Abilita lo scrolling verticale se il contenuto supera l'altezza massima */
+    max-height: calc(100% - 100px); /* Altezza massima del contenuto per evitare che superi l'intera finestra */
+  }
+
+  .no-booking-message {
+    color: white !important;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+  }
+</style>
+
+<div class="background-container"></div>
+
+<div class="content-container">
+  <div class="container mt-5">
+    <mat-card *ngFor="let a of appuntamenti" class="example-card" style="margin-bottom: 1.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+      <mat-card-content>
+        <div class="appuntamento-details" style="padding: 1rem;">
+          <p class="appuntamento-name" style="margin: 0.5rem 0;"><strong>Tipo:</strong> {{ a.tipo }}</p>
+          <p class="appuntamento-ora" style="margin: 0.5rem 0;"><strong>Avvocato:</strong> {{ a.nomeAvvocato }}</p>
+          <p class="appuntamento-postiDisponibili" style="margin: 0.5rem 0;"><strong>Posti Disponibili:</strong> {{ a.postiDisponibili }}</p>
+          <p class="appuntamento-data" style="margin: 0.5rem 0;"><strong>Data Appuntamento:</strong> {{ a.data }}</p>
+          <p class="appuntamento-ora" style="margin: 0.5rem 0;"><strong>Ora Appuntamento:</strong> {{ a.ora }}</p>
+          <button (click)="removeAppuntamento(a.id)" style="background-color: #dc3545; color: white; border: none; padding: 0.25rem 0.5rem; font-size: 0.85rem; cursor: pointer; border-radius: 4px;">
+            X
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+  <div class="no-appuntamenti" *ngIf="appuntamenti.length === 0">
+    <p style="text-align: center; font-size: 1.2rem; color: #555;">Nessun appuntamento disponibile al momento.</p>
+  </div>
+
+</div>
